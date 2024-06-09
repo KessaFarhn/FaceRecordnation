@@ -1,0 +1,15 @@
+# Gunakan image dasar Python
+FROM python:3.8-slim
+
+# Set work directory
+WORKDIR /app
+
+# Copy file requirements.txt dan install dependencies
+COPY requirements.txt requirements.txt
+RUN pip install -r requirements.txt
+
+# Copy semua file ke container
+COPY . .
+
+# Eksekusi command untuk menjalankan aplikasi
+CMD ["python", "main.py"]
